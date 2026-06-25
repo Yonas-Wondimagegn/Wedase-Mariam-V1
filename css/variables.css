@@ -1,0 +1,155 @@
+/* ============================================
+   FRESH MODERN UI - Wedase Mariam
+   ============================================ */
+
+:root {
+    /* Warm, spiritual color palette */
+    --bg: #faf8f5;
+    --bg-card: #ffffff;
+    --bg-soft: #f5f0ea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5c5552;
+    --text-muted: #9b9590;
+    --accent: #8b6914;
+    --accent-light: #c4952a;
+    --accent-warm: #d4a574;
+    --accent-glow: rgba(196, 149, 42, 0.12);
+    --accent-glow-strong: rgba(196, 149, 42, 0.25);
+    --border: #e8e2d8;
+    --border-light: #f0ebe3;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-xl: 0 20px 50px rgba(0,0,0,0.1);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-main: 'Noto Serif Ethiopic', Georgia, serif;
+    --font-ui: 'Noto Sans Ethiopic', system-ui, sans-serif;
+    --font-size: 17px;
+    --line-height: 1.85;
+    --header-h: 60px;
+    --nav-h: 64px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme - deep, warm */
+[data-theme="dark"] {
+    --bg: #0d0f14;
+    --bg-card: #16181f;
+    --bg-soft: #1c1f28;
+    --text-primary: #e8e4de;
+    --text-secondary: #a8a29a;
+    --text-muted: #6b6560;
+    --accent: #d4a84b;
+    --accent-light: #e8c068;
+    --accent-warm: #c4956a;
+    --accent-glow: rgba(212, 168, 75, 0.1);
+    --accent-glow-strong: rgba(212, 168, 75, 0.2);
+    --border: #252832;
+    --border-light: #1e2129;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+/* Sepia - warm paper */
+[data-theme="sepia"] {
+    --bg: #f5efe3;
+    --bg-card: #faf7f0;
+    --bg-soft: #f0e8da;
+    --text-primary: #2e2418;
+    --text-secondary: #5e5040;
+    --text-muted: #8c7a66;
+    --accent: #7a5c2e;
+    --accent-light: #b8860b;
+    --accent-warm: #a0785a;
+    --accent-glow: rgba(184, 134, 11, 0.08);
+    --accent-glow-strong: rgba(184, 134, 11, 0.15);
+    --border: #d8cfc0;
+    --border-light: #e8e0d2;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: var(--line-height);
+    color: var(--text-primary);
+    background: var(--bg);
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+    overflow-x: hidden;
+    padding-bottom: var(--nav-h);
+}
+
+@media (min-width: 768px) {
+    body { padding-bottom: 0; }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+    position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: white; padding: 10px 20px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    z-index: 10000; text-decoration: none; font-weight: 600;
+    transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-light); }
+
+button {
+    font-family: var(--font-ui);
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Selection */
+::selection { background: var(--accent-glow-strong); color: var(--text-primary); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

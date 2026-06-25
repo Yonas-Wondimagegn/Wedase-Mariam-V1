@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="am" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Wedase Mariam - Ethiopian Orthodox Prayers and Hymns">
+    <meta name="theme-color" content="#8b6914">
+    <title>ውዳሴ ማርያም | Wedase Mariam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ethiopic:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
+    <header class="header" role="banner">
+        <div class="header-inner">
+            <a href="#" class="logo" aria-label="Home" onclick="goHome()">
+                <span class="logo-icon">☩</span>
+                <span class="logo-text">ውዳሴ ማርያም</span>
+            </a>
+            <div class="header-actions">
+                <button class="icon-btn theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="icon-btn" aria-label="Reading settings" onclick="toggleSettings()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-bar">
+        <span class="page-bar-text" id="page-indicator"></span>
+        <div class="page-bar-progress" id="page-progress"></div>
+    </div>
+
+    <div class="settings-overlay" id="settings-panel" hidden>
+        <div class="settings-card" role="dialog" aria-modal="true" aria-label="Reading settings">
+            <div class="settings-header">
+                <h2>Reading Settings</h2>
+                <button class="icon-btn" onclick="toggleSettings()" aria-label="Close">✕</button>
+            </div>
+            <div class="settings-body">
+                <div class="setting-row">
+                    <label>Font Size</label>
+                    <div class="setting-controls">
+                        <button class="size-btn" onclick="changeFontSize(-1)" aria-label="Decrease">A−</button>
+                        <span class="size-display" id="font-size-display">17px</span>
+                        <button class="size-btn" onclick="changeFontSize(1)" aria-label="Increase">A+</button>
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <label>Font Family</label>
+                    <select id="font-family-select" class="setting-select" onchange="changeFontFamily(this.value)">
+                        <option value="'Noto Serif Ethiopic', Georgia, serif">Serif</option>
+                        <option value="'Noto Sans Ethiopic', system-ui, sans-serif">Sans-serif</option>
+                    </select>
+                </div>
+                <div class="setting-row">
+                    <label>Line Spacing</label>
+                    <div class="setting-controls">
+                        <button class="size-btn" onclick="changeLineHeight(-0.1)" aria-label="Decrease">−</button>
+                        <span class="size-display" id="line-height-display">1.85</span>
+                        <button class="size-btn" onclick="changeLineHeight(0.1)" aria-label="Increase">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" class="swipe-container">
+        <div class="swipe-viewport" id="swipe-viewport">
+            <div class="loading">
+                <div class="loader"></div>
+                <div class="loading-text">Loading prayers...</div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="nav-controls" aria-label="Page navigation">
+        <button class="nav-btn" id="prev-btn" aria-label="Previous" onclick="moveBy(-1)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="nav-dots" id="nav-dots"></div>
+        <button class="nav-btn" id="next-btn" aria-label="Next" onclick="moveBy(1)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+    </nav>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
