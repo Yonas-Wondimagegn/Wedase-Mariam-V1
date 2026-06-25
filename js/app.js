@@ -1,9 +1,3 @@
-/**
- * Wedase Mariam - Fresh Modern UI
- * Swipe navigation with smooth transitions
- */
-
-// ==================== DATA ====================
 const PAGES = [
     { id: 'daily', title: 'ጸሎት ዘዘወትር', subtitle: 'Daily Prayer', type: 'daily' },
     { id: 'monday', title: 'የሰኑይ ውዳሴ', subtitle: 'Monday', type: 'wedase' },
